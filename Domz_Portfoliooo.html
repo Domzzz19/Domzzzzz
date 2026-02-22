@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dominic Gabriel Tayong - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HEADER - SIDE BY SIDE LAYOUT */
+        header {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-section {
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 4px solid #00d4aa;
+            box-shadow: 0 0 30px rgba(0,212,170,0.4);
+        }
+
+        .info-section {
+            flex: 1;
+        }
+
+        h1 {
+            color: #00d4aa;
+            margin-bottom: 10px;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgba(0,212,170,0.3);
+        }
+
+        .subtitle {
+            color: #b0b0b0;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            color: #ffd700;
+            font-style: italic;
+            font-size: 1.1em;
+            border-left: 3px solid #00d4aa;
+            padding-left: 15px;
+        }
+
+        section {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #00d4aa;
+            padding-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #00d4aa 0%, #00a884 100%);
+            color: #0f2027;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #ffd700;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateX(5px);
+        }
+
+        .project-card h3 {
+            color: #00d4aa;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .contact-item span:first-child {
+            font-size: 1.3em;
+            width: 30px;
+        }
+
+        footer {
+            text-align: center;
+            color: #b0b0b0;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* RESPONSIVE - Para sa mobile */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                border-left: none;
+                border-top: 3px solid #00d4aa;
+                padding-left: 0;
+                padding-top: 15px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Header - SIDE BY SIDE -->
+        <header>
+            <!-- LEFT SIDE: Picture -->
+            <div class="profile-section">
+                <img id="profileImg" src="C:\Users\ADMIN\Downloads\Domz.jpg" alt="Dominic Tayong" class="profile-img">
+            </div>
+
+            <!-- RIGHT SIDE: Info -->
+            <div class="info-section">
+                <h1>Dominic Gabriel Tayong</h1>
+                <p class="subtitle">Bachelor of Science in Information Technology - 3rd Year</p>
+            </div>
+        </header>
+
+        <!-- Career Objective -->
+        <section>
+            <h2> Career Objective</h2>
+            <p>
+                To leverage my knowledge and skills in IT to secure a challenging position as an IT professional someday, where I can contribute to innovative projects and continue learning. I aim to gain hands-on experience in emerging technologies like AI and cloud computing, and develop strong problem-solving and teamwork skills.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2> Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">Problem Solving</div>
+        
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <h2> Projects</h2>
+            <div class="project-card">
+                <h3>Personal Portfolio Website</h3>
+        <p>  
+            </div>
+        </section>
+
+        <!-- Contact -->
+         <section>
+            <h2> Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>DomzTayong@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>09516267896</span>
+                </div>
+                <div class="contact-item">
+                    <span>FB:</span>
+                    <span>Dominic Gabriel Tayong</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Dominic Gabriel Tayong | portfolio</p>
+        </footer>
+
+    </div>
+</body>
+</html>
